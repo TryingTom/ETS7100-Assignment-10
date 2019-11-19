@@ -46,10 +46,18 @@ public class MainActivity extends AppCompatActivity {
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         getApplicationContext().registerReceiver(julistuksenKuuntelija, intentFilter);
 
+
+        /*Julistus julistaja = new Julistus();
+        IntentFilter intentFilter2 = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        getApplicationContext().registerReceiver(julistaja, intentFilter2);*/
+
         RoomDao dao = Tietokanta.getInstance(this).myDao();
 
         lista = (ArrayList<Taulu>) dao.getAllEntitys();
         adapteri.addAll(lista);
+
+        // jostain syystä ei nyt toimi edes tämä... puhelimella toimii mutta ei emulaattorilla... viime committi toimi jollain lailla
 
 
         adapteri.notifyDataSetChanged();

@@ -9,41 +9,17 @@ import androidx.annotation.Nullable;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class IntentPalvelu extends IntentService {
+public class IntentPalvelu2 extends IntentService {
 
-    public IntentPalvelu() {
+    public IntentPalvelu2() {
         super("IntentPalvelu");
         setIntentRedelivery(false);
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        RoomDao dao = Tietokanta.getInstance(this).myDao();
-
-        // lisää tieto
-        Taulu t = new Taulu();
-
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateTimeInstance().format(calendar.getTime());
-
-        t.timestamp = currentDate;
-        t.opened = "Opened";
-        dao.insert(t);
-    }
-
-
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        // make something to make this just idle around and turn off when the screen is closed?
-    }
 
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
 
         RoomDao dao = Tietokanta.getInstance(this).myDao();
 
@@ -57,5 +33,4 @@ public class IntentPalvelu extends IntentService {
         t.opened = "Closed";
         dao.insert(t);
     }
-
 }

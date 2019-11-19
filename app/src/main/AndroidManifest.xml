@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <service android:name=".IntentPalvelu"/>
+        <service android:name=".IntentPalvelu2"/>
     </application>
 
 </manifest>

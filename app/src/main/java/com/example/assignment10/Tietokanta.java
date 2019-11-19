@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 // tietokannan voi tyhjentää versionvaihdolla
-@Database(entities = Taulu.class, version = 26)
+@Database(entities = Taulu.class, version = 29)
 public abstract class Tietokanta extends RoomDatabase {
 
     public static final String NIMI = "TIETOKANTA";
